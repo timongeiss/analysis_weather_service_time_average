@@ -38,7 +38,6 @@ Visualizes:
 ```python
 data, hourly_mean = generate_time_average_radiation(days=4, samples_per_hour=6)
 hourly_mean_reconstructed = recalculate_original_values(hourly_mean)
-plot_radiation_analysis(data, hourly_mean, hourly_mean_reconstructed)```markdown
-
+plot_radiation_analysis(data, hourly_mean, hourly_mean_reconstructed)
 
 
