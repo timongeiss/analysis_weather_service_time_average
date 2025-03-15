@@ -28,3 +28,51 @@ def test_generate_time_average_radiation():
 
     # no night radiation
     assert (data["radiation"] >= 0).all(), "all radiation values are >= 0"
+
+
+def test_recalculate_original_values():
+    hourly_mean = pd.DataFrame(
+        {
+            "hour": pd.date_range(start="2025-01-01", periods=3, freq="H"),
+            "cumulative_mean": [0, 50, 100],
+        }
+    )
+
+    result = tafa.recalculate_original_values(hourly_mean)
+
+    # check column
+    assert "Original" in result.columns
+
+    # check lenght
+    assert len(result) == 3
+
+    # check for pos radiation
+    assert result.loc[1, "Original"] >= 0
+
+
+def test_plot_radiation_analysis():
+    data = pd.DataFrame(
+        {
+            "time": pd.date_range(start="2025-01-01", periods=3, freq="H"),
+            "radiation": [0, 100, 50],
+            "cumulative_area": [0, 50, 75],
+            "cumulative_mean": [0, 50, 75],
+        }
+    )
+
+    hourly_mean = pd.DataFrame(
+        {
+            "hour": pd.date_range(start="2025-01-01", periods=3, freq="H"),
+            "cumulative_mean": [0, 50, 75],
+        }
+    )
+
+    hourly_mean_with_reconstruction = pd.DataFrame(
+        {
+            "hour": pd.date_range(start="2025-01-01", periods=3, freq="H"),
+            "Original": [0, 100, 50],
+        }
+    )
+
+    # check for failiure
+    tafa.plot_radiation_analysis(data, hourly_mean, hourly_mean_with_reconstruction)
