@@ -1,5 +1,4 @@
-# Analysis of time averaged output fields from weather services
-# Time-vveraging and absolute value reconstruction in weather wata
+# Time-averaging and absolute value reconstruction in weather wata
 
 
 ## Overview
