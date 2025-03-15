@@ -1,5 +1,9 @@
-# Time-averaging and absolute value reconstruction in weather wata
+# License
+This project comes with a MIT License
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+# Time-averaging and absolute value reconstruction in weather wata
 
 ## Overview
 Weather services, like the German Weather Service (DWD), often provide **time-averaged** forecast outputs rather than **absolute values**.
@@ -37,7 +41,4 @@ hourly_mean_reconstructed = recalculate_original_values(hourly_mean)
 plot_radiation_analysis(data, hourly_mean, hourly_mean_reconstructed)```markdown
 
 
-# License
-This project comes with a MIT License
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
